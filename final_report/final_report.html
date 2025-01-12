@@ -78,7 +78,7 @@ div.csl-indent {
 }</style>
 
 
-<script src="final_report_files/libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="final_report_files/libs/clipboard/clipboard.min.js"></script>
 <script src="final_report_files/libs/quarto-html/quarto.js"></script>
 <script src="final_report_files/libs/quarto-html/popper.min.js"></script>
 <script src="final_report_files/libs/quarto-html/tippy.umd.min.js"></script>
@@ -88,6 +88,9 @@ div.csl-indent {
 <script src="final_report_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="final_report_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="final_report_files/libs/bootstrap/bootstrap-99303d1e375bb9f7f385a571b6b7f595.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -108,7 +111,12 @@ div.csl-indent {
   <li><a href="#データの前処理の方法" id="toc-データの前処理の方法" class="nav-link" data-scroll-target="#データの前処理の方法"><span class="header-section-number">2.3</span> データの前処理の方法</a></li>
   </ul></li>
   <li><a href="#データ変数と視覚変数の対応関係" id="toc-データ変数と視覚変数の対応関係" class="nav-link" data-scroll-target="#データ変数と視覚変数の対応関係"><span class="header-section-number">3</span> データ変数と視覚変数の対応関係</a></li>
-  <li><a href="#可視化作品" id="toc-可視化作品" class="nav-link" data-scroll-target="#可視化作品"><span class="header-section-number">4</span> 可視化作品</a></li>
+  <li><a href="#可視化作品" id="toc-可視化作品" class="nav-link" data-scroll-target="#可視化作品"><span class="header-section-number">4</span> 可視化作品</a>
+  <ul class="collapse">
+  <li><a href="#男女間の賃金格差男性の国別平均仕事満足度" id="toc-男女間の賃金格差男性の国別平均仕事満足度" class="nav-link" data-scroll-target="#男女間の賃金格差男性の国別平均仕事満足度"><span class="header-section-number">4.1</span> 男女間の賃金格差×男性の国別平均仕事満足度</a></li>
+  <li><a href="#男女間賃金格差男性有配偶者の国別平均仕事満足度" id="toc-男女間賃金格差男性有配偶者の国別平均仕事満足度" class="nav-link" data-scroll-target="#男女間賃金格差男性有配偶者の国別平均仕事満足度"><span class="header-section-number">4.2</span> 男女間賃金格差×男性有配偶者の国別平均仕事満足度</a></li>
+  <li><a href="#男女間賃金格差男性有配偶者の日本を除く国別平均仕事満足度" id="toc-男女間賃金格差男性有配偶者の日本を除く国別平均仕事満足度" class="nav-link" data-scroll-target="#男女間賃金格差男性有配偶者の日本を除く国別平均仕事満足度"><span class="header-section-number">4.3</span> 男女間賃金格差×男性有配偶者の日本を除く国別平均仕事満足度</a></li>
+  </ul></li>
   <li><a href="#考察" id="toc-考察" class="nav-link" data-scroll-target="#考察"><span class="header-section-number">5</span> 考察</a></li>
   <li><a href="#参考文献" id="toc-参考文献" class="nav-link" data-scroll-target="#参考文献"><span class="header-section-number">6</span> 参考文献</a></li>
   </ul>
@@ -131,7 +139,7 @@ div.csl-indent {
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
-            東京大学大学院教育学研究科比較教育社会学コース
+            東京大学大学院教育学研究科比較教育社会学コース修士課程
           </p>
       </div>
   </div>
@@ -142,7 +150,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025/01/12</p>
+      <p class="date">2025/01/13</p>
     </div>
   </div>
   
@@ -179,18 +187,28 @@ div.csl-indent {
 <ul>
 <li><span class="citation" data-cites="ISSP2015">ISSP Research Group (<a href="#ref-ISSP2015" role="doc-biblioref">2017</a>)</span>
 <ul>
+<li>データの説明
+<ul>
+<li>仕事、雇用、仕事の方向性に関する国際的な社会調査</li>
+</ul></li>
+<li>用いた変数
+<ul>
 <li>調査対象国</li>
 <li>性別</li>
 <li>仕事満足度（あなたは、今の仕事にどのくらい満足していますか。）</li>
 <li>同居するパートナーの有無（あなたには現在、配偶者（またはパートナー）がいますか。また、いる方は、その相手と一緒に生活していますか。）</li>
 </ul></li>
+</ul></li>
 <li><span class="citation" data-cites="OECD2024">OECD (<a href="#ref-OECD2024" role="doc-biblioref">2024</a>)</span>
+<ul>
+<li>用いた変数
 <ul>
 <li>OECD加盟国における男女の賃金格差</li>
 <li>集計年</li>
 <li>集計した国</li>
 <li>賃金分布において、賃金の中央値を計算する範囲</li>
 <li>賃金の中央値の男女差が男性の賃金の中央値に占める割合（%）</li>
+</ul></li>
 </ul></li>
 </ul>
 </section>
@@ -199,27 +217,36 @@ div.csl-indent {
 <ul>
 <li><span class="citation" data-cites="ISSP2015">ISSP Research Group (<a href="#ref-ISSP2015" role="doc-biblioref">2017</a>)</span>
 <ul>
-<li>以下のURLから手動で端末にCSVファイルをダウンロードした
+<li>以下のURLから手動でローカル端末にCSVファイルをダウンロードした。ダウンロードした後自分のGitHubレポジトリにアップロードした。
 <ul>
 <li><a href="https://doi.org/10.4232/1.12848" class="uri">https://doi.org/10.4232/1.12848</a></li>
-</ul></li>
+</ul>
+<div id="c809967c" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ISSP(2015) のデータをダウンロードする。</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/MITA-Shunosuke/infovis-notebooks/refs/heads/main/final_report/ISSP</span><span class="sc">%202015%</span><span class="st">20-%20Work%20Orientations%20IV/issp2015_wo.csv'</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df_wo <span class="op">=</span> pd.read_csv(io.BytesIO(response.content))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div></li>
 </ul></li>
 <li><span class="citation" data-cites="OECD2024">OECD (<a href="#ref-OECD2024" role="doc-biblioref">2024</a>)</span>
 <ul>
-<li>CSVファイルをダウンロードする以下のリンクから io ライブラリおよび requests ライブラリを用いてダウンロードした。
+<li>以下のリンクから io ライブラリおよび requests ライブラリを用いて CSVファイルをダウンロードした。
 <ul>
 <li><a href="https://sdmx.oecd.org/public/rest/data/OECD.ELS.SAE,DSD_EARNINGS@GENDER_WAGE_GAP,1.0/all?dimensionAtObservation=AllDimensions&amp;format=csvfilewithlabels" class="uri">https://sdmx.oecd.org/public/rest/data/OECD.ELS.SAE,DSD_EARNINGS@GENDER_WAGE_GAP,1.0/all?dimensionAtObservation=AllDimensions&amp;format=csvfilewithlabels</a></li>
-</ul></li>
 </ul>
-<div id="b7dc6a14" class="cell" data-execution_count="3">
+<div id="e55a90cf" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 性別による賃金の中央値の差のデータをダウンロードする</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://sdmx.oecd.org/public/rest/data/OECD.ELS.SAE,DSD_EARNINGS@GENDER_WAGE_GAP,1.0/all?dimensionAtObservation=AllDimensions&amp;format=csvfilewithlabels'</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df_gengap <span class="op">=</span> pd.read_csv(io.BytesIO(response.content))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># OECDによる性別による賃金の中央値の差の国別データをダウンロードする</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://sdmx.oecd.org/public/rest/data/OECD.ELS.SAE,DSD_EARNINGS@GENDER_WAGE_GAP,1.0/all?dimensionAtObservation=AllDimensions&amp;format=csvfilewithlabels'</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df_gengap <span class="op">=</span> pd.read_csv(io.BytesIO(response.content))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div></li>
+</ul></li>
 </ul>
 </section>
 <section id="データの前処理の方法" class="level2" data-number="2.3">
@@ -227,31 +254,537 @@ div.csl-indent {
 <ul>
 <li><span class="citation" data-cites="ISSP2015">ISSP Research Group (<a href="#ref-ISSP2015" role="doc-biblioref">2017</a>)</span>
 <ul>
-<li>OECD加盟国＋台湾の行のみ抽出する。</li>
-<li>仕事満足度の変数を、仕事満足度が高くなるほど値が大きくなるように逆転</li>
-<li>国ごとの男性の国別平均仕事満足度が対応したデータセットを作成</li>
+<li><p>OECD加盟国＋台湾の行のみ抽出する。</p>
+<div id="5bc45c26" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#すべての調査が終了した2017年6月時点でのOECD加盟国 + 台湾 のラベルを</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 正式な国名に変換し、それ以外の国名を None に変換</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Country_OECD_full(x):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x <span class="op">==</span> <span class="st">"AT"</span>:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Austria"</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"AU"</span>:</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Australia"</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"BE"</span>:</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Belgium"</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"CH"</span>:</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Switzerland"</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"CL"</span>:</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Chile"</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"CZ"</span>:</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Czech Republic"</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"DK"</span>:</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Denmark"</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"EE"</span>:</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Estonia"</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"ES"</span>:</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Spain"</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"FI"</span>:</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Finland"</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"FR"</span>:</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"France"</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"HU"</span>:</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Hungary"</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"IS"</span>:</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Iceland"</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"JP"</span>:</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Japan"</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"LV"</span>:</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Latvia"</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"MX"</span>:</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Mexico"</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"NZ"</span>:</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"New Zealand"</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"NO"</span>:</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Norway"</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"PL"</span>:</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Poland"</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"SE"</span>:</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Sweden"</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"SI"</span>:</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Slovenia"</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"SK"</span>:</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Slovakia"</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"TR"</span>:</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Turkey"</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"TW"</span>:</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Taiwan"</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"US"</span>:</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"United States"</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"DE"</span>:</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Germany"</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"IL"</span>:</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Israel"</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">==</span> <span class="st">"GB-GBN"</span>:</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Great Britain"</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>df_wo[<span class="st">'Country_OECD_full'</span>] <span class="op">=</span> df_wo[<span class="st">'c_alphan'</span>].<span class="bu">apply</span>(Country_OECD_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div></li>
+<li><p>仕事満足度の変数を、仕事満足度が高くなるほど値が大きくなるように逆転</p>
+<div id="3ab5e7bb" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#v44 あなたは、今の仕事にどのくらい満足していますか。</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#項目の逆転</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df_wo[<span class="st">'satisfy_in_job'</span>] <span class="op">=</span> df_wo[<span class="st">'v44'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x : <span class="dv">8</span><span class="op">-</span>x <span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">8</span> <span class="cf">else</span> <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div></li>
+<li><p>国ごとの男性の国別平均仕事満足度が対応したデータセットを作成</p>
+<div id="5e1abaf6" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ISSP2015のデータについて、男性における国別の平均仕事満足度のデータフレームを作成する</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_wo_analysis <span class="op">=</span> df_wo[(df_wo[<span class="st">'SEX_label'</span>] <span class="op">==</span> <span class="st">'Male'</span>)]<span class="op">\</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  .groupby([<span class="st">'Country_OECD_full'</span>])[<span class="st">'satisfy_in_job'</span>]<span class="op">\</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  .mean().reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div></li>
 </ul></li>
 <li><span class="citation" data-cites="OECD2024">OECD (<a href="#ref-OECD2024" role="doc-biblioref">2024</a>)</span>
 <ul>
 <li>集計年が2014年の行を抽出
 <ul>
 <li>2015年から直近2年で最も集計された国が多かったため</li>
-</ul></li>
+</ul>
+<div id="fddb9e5d" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># OECDのデータセットから、集計年が2014年かつ格差の計算範囲が全体の行を抽出</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_gengap_analysis <span class="op">=</span> df_gengap[(df_gengap[<span class="st">'TIME_PERIOD'</span>] <span class="op">==</span> <span class="dv">2014</span>)<span class="op">\</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&amp;</span>(df_gengap[<span class="st">'AGGREGATION_OPERATION'</span>] <span class="op">==</span> <span class="st">'MEDIAN'</span>)]<span class="op">\</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    .loc[:, [<span class="st">'STRUCTURE_NAME'</span>,<span class="st">'REF_AREA'</span>,<span class="st">'Reference area'</span>,<span class="st">'OBS_VALUE'</span>]]<span class="op">\</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div></li>
 </ul></li>
 <li>上記の二つのデータセットを国名を元に横に結合した分析用データセットを作成
 <ul>
 <li>21ヶ国のデータが得られた</li>
-</ul></li>
+</ul>
+<div id="21db4691" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 二つのデータセットを横に結合した分析用データセットを作る</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_concat <span class="op">=</span> pd.merge(df_wo_analysis, df_gengap_analysis,<span class="op">\</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>              left_on<span class="op">=</span><span class="st">"Country_OECD_full"</span>, right_on<span class="op">=</span><span class="st">"Reference area"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div></li>
 </ul>
 </section>
 </section>
 <section id="データ変数と視覚変数の対応関係" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> データ変数と視覚変数の対応関係</h1>
-<p>データセット 散布図 データ ある国の賃金の中央値の男女差・男性における国別平均仕事満足度：直交座標のある点に位置する色を持った円 データ変数 賃金の中央値の男女差：x軸 男性における国別平均仕事満足度：y軸</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 24%">
+<col style="width: 12%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">データ変数</th>
+<th>データ変数の性質</th>
+<th style="text-align: right;">視覚変数</th>
+<th style="text-align: right;">視覚変数の性質</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ある国の賃金の中央値の男女差</td>
+<td>比例尺度</td>
+<td style="text-align: right;">位置X</td>
+<td style="text-align: right;">定量性・順序性</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">男性における国別平均仕事満足度</td>
+<td>順序尺度</td>
+<td style="text-align: right;">位置Y</td>
+<td style="text-align: right;">定量性・順序性</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">二つのデータ間の回帰直線の傾き</td>
+<td>比例尺度</td>
+<td style="text-align: right;">角度・方向</td>
+<td style="text-align: right;">定量性・順序性</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="可視化作品" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> 可視化作品</h1>
-<p>こんな感じ</p>
+<section id="男女間の賃金格差男性の国別平均仕事満足度" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="男女間の賃金格差男性の国別平均仕事満足度"><span class="header-section-number">4.1</span> 男女間の賃金格差×男性の国別平均仕事満足度</h2>
+<div id="c8dafa40" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(df_analysis).mark_point().encode(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Gender wage gap'</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'satisfy_in_job'</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span>alt.TitleParams(text <span class="op">=</span> <span class="st">'そのままのデータ'</span>, </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                          fontSize <span class="op">=</span> <span class="dv">14</span>, </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                          dy <span class="op">=</span> <span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> chart.mark_text(</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    align<span class="op">=</span><span class="st">'left'</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    baseline<span class="op">=</span><span class="st">'middle'</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    dx<span class="op">=</span><span class="dv">7</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>).encode(</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    text<span class="op">=</span><span class="st">'Country'</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>line <span class="op">=</span> chart.transform_regression(<span class="st">'Gender wage gap'</span>, <span class="st">'satisfy_in_job'</span>).mark_line()</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>chart_std <span class="op">=</span> alt.Chart(df_analysis_std).mark_point().encode(</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Gender wage gap'</span>,</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'satisfy_in_job'</span>,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span>alt.TitleParams(text <span class="op">=</span> <span class="st">'標準化したデータ'</span>, </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>                          fontSize <span class="op">=</span> <span class="dv">14</span>, </span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>                          dy <span class="op">=</span> <span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>text_std <span class="op">=</span> chart_std.mark_text(</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    align<span class="op">=</span><span class="st">'left'</span>,</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    baseline<span class="op">=</span><span class="st">'middle'</span>,</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    dx<span class="op">=</span><span class="dv">7</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>).encode(</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    text<span class="op">=</span><span class="st">'Country'</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>line_std <span class="op">=</span> chart_std.transform_regression(<span class="st">'Gender wage gap'</span>, <span class="st">'satisfy_in_job'</span>).mark_line()</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>alt.hconcat(chart <span class="op">+</span> chart.interactive() <span class="op">+</span> text <span class="op">+</span> line,<span class="op">\</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>   chart_std <span class="op">+</span> chart_std.interactive() <span class="op">+</span> text_std <span class="op">+</span> line_std</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>            )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="12">
+
+<style>
+  #altair-viz-137601ef470847bd8442865b0becc225.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-137601ef470847bd8442865b0becc225.vega-embed details,
+  #altair-viz-137601ef470847bd8442865b0becc225.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-137601ef470847bd8442865b0becc225"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-137601ef470847bd8442865b0becc225") {
+      outputDiv = document.getElementById("altair-viz-137601ef470847bd8442865b0becc225");
+    }
+
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.20.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      let deps = ["vega-embed"];
+      require(deps, displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.20.1"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"layer": [{"mark": {"type": "point"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u305d\u306e\u307e\u307e\u306e\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "point"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "name": "view_1", "title": {"text": "\u305d\u306e\u307e\u307e\u306e\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 7}, "encoding": {"text": {"field": "Country", "type": "nominal"}, "x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u305d\u306e\u307e\u307e\u306e\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "line"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u305d\u306e\u307e\u307e\u306e\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}, "transform": [{"on": "Gender wage gap", "regression": "satisfy_in_job"}]}]}, {"layer": [{"mark": {"type": "point"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u6a19\u6e96\u5316\u3057\u305f\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "point"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "name": "view_2", "title": {"text": "\u6a19\u6e96\u5316\u3057\u305f\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 7}, "encoding": {"text": {"field": "Country", "type": "nominal"}, "x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u6a19\u6e96\u5316\u3057\u305f\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "line"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u6a19\u6e96\u5316\u3057\u305f\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}, "transform": [{"on": "Gender wage gap", "regression": "satisfy_in_job"}]}]}], "data": {"name": "data-8c05585e81472d585fdab6a3e9e7c33c"}, "params": [{"name": "param_1", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales", "views": ["view_1"]}, {"name": "param_2", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales", "views": ["view_2"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-8c05585e81472d585fdab6a3e9e7c33c": [{"Country": "Australia", "satisfy_in_job": -0.6340592380544448, "Gender wage gap": 0.2719777993924545}, {"Country": "Austria", "satisfy_in_job": 1.671266050211803, "Gender wage gap": 0.545191657551984}, {"Country": "Belgium", "satisfy_in_job": -0.2907285460686627, "Gender wage gap": -1.4708707780567853}, {"Country": "Denmark", "satisfy_in_job": 0.6112055394268404, "Gender wage gap": -1.0482425186789526}, {"Country": "Estonia", "satisfy_in_job": -0.49729739563605085, "Gender wage gap": 2.0276161687635432}, {"Country": "Finland", "satisfy_in_job": 0.15562952616263281, "Gender wage gap": 0.8078801640845323}, {"Country": "France", "satisfy_in_job": -0.6377155488408328, "Gender wage gap": -0.5525062360120885}, {"Country": "Germany", "satisfy_in_job": 0.10669449032716007, "Gender wage gap": 0.4695530117457925}, {"Country": "Hungary", "satisfy_in_job": -0.46959876526283034, "Gender wage gap": -1.4046878087699928}, {"Country": "Iceland", "satisfy_in_job": 0.36484225946642995, "Gender wage gap": 0.001978354631756627}, {"Country": "Israel", "satisfy_in_job": 0.7700939486929137, "Gender wage gap": 0.8776057894013657}, {"Country": "Japan", "satisfy_in_job": -3.0651158559147618, "Gender wage gap": 1.6827531192677423}, {"Country": "Latvia", "satisfy_in_job": 0.10898136608915507, "Gender wage gap": 1.0193944391681748}, {"Country": "Mexico", "satisfy_in_job": 1.0785677877590243, "Gender wage gap": 0.6249841943790959}, {"Country": "New Zealand", "satisfy_in_job": 0.09598088731036493, "Gender wage gap": -1.0818481182879032}, {"Country": "Norway", "satisfy_in_job": 0.3458302232848978, "Gender wage gap": -1.1213366129169782}, {"Country": "Poland", "satisfy_in_job": -1.5784484252650752, "Gender wage gap": -0.3847438681958665}, {"Country": "Slovenia", "satisfy_in_job": -0.18630041564178304, "Gender wage gap": -1.2337252560816667}, {"Country": "Spain", "satisfy_in_job": 0.528966020867264, "Gender wage gap": -0.3194090184270981}, {"Country": "Sweden", "satisfy_in_job": -0.3122038519830707, "Gender wage gap": -0.6530384187159006}, {"Country": "Switzerland", "satisfy_in_job": 1.378962825269971, "Gender wage gap": 0.43507772451288984}, {"Country": "United States", "satisfy_in_job": 0.4544471177991076, "Gender wage gap": 0.5063962112439047}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+</section>
+<section id="男女間賃金格差男性有配偶者の国別平均仕事満足度" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="男女間賃金格差男性有配偶者の国別平均仕事満足度"><span class="header-section-number">4.2</span> 男女間賃金格差×男性有配偶者の国別平均仕事満足度</h2>
+<div id="b8e6856c" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 男性かつ配偶者がいて、一緒に生活している人に絞ってみる</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">## ISSP2015のデータについて、男性有配偶者における国別の平均仕事満足度のDFを作成する</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df_wo_analysis_m <span class="op">=</span> df_wo[(df_wo[<span class="st">'SEX_label'</span>] <span class="op">==</span> <span class="st">'Male'</span>)<span class="op">&amp;</span>(df_wo[<span class="st">'PARTLIV'</span>] <span class="op">==</span> <span class="dv">1</span>)]<span class="op">\</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    .groupby([<span class="st">'Country_OECD_full'</span>])[<span class="st">'satisfy_in_job'</span>]<span class="op">\</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    .mean().reset_index()</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">## 二つのデータセットを横に結合した分析用データセットを作る</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>df_concat <span class="op">=</span> pd.merge(df_wo_analysis_m, df_gengap_analysis,<span class="op">\</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                        left_on<span class="op">=</span><span class="st">"Country_OECD_full"</span>, right_on<span class="op">=</span><span class="st">"Reference area"</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">## 特定の列を抽出し、列名を変更する</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>df_analysis_m <span class="op">=</span> df_concat.loc[:, [<span class="st">'Country_OECD_full'</span>,<span class="st">'satisfy_in_job'</span>,<span class="st">'OBS_VALUE'</span>]]<span class="op">\</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    .rename(columns<span class="op">=</span>{<span class="st">"Country_OECD_full"</span>:<span class="st">"Country"</span>,<span class="st">"OBS_VALUE"</span>:<span class="st">"Gender wage gap"</span>})</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Zスコアによる標準化</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>df_analysis_m_std <span class="op">=</span> df_analysis_m</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>df_analysis_m_std[<span class="st">'satisfy_in_job'</span>] <span class="op">=</span> (df_analysis_m[<span class="st">'satisfy_in_job'</span>] <span class="op">\</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> df_analysis_m[<span class="st">'satisfy_in_job'</span>].mean()) <span class="op">/</span> df_analysis_m[<span class="st">'satisfy_in_job'</span>].std()</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>df_analysis_m_std[<span class="st">'Gender wage gap'</span>] <span class="op">=</span> (df_analysis_m[<span class="st">'Gender wage gap'</span>] <span class="op">\</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> df_analysis_m[<span class="st">'Gender wage gap'</span>].mean()) <span class="op">/</span> df_analysis_m[<span class="st">'Gender wage gap'</span>].std()</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">#グラフの描画</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(df_analysis_m).mark_point().encode(</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Gender wage gap'</span>,</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'satisfy_in_job'</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span>alt.TitleParams(text <span class="op">=</span> <span class="st">'そのままのデータ'</span>, </span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>                                      fontSize <span class="op">=</span> <span class="dv">14</span>, </span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>                                      dy <span class="op">=</span> <span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> chart.mark_text(</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    align<span class="op">=</span><span class="st">'left'</span>,</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    baseline<span class="op">=</span><span class="st">'middle'</span>,</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    dx<span class="op">=</span><span class="dv">7</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>).encode(</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    text<span class="op">=</span><span class="st">'Country'</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>line <span class="op">=</span> chart.transform_regression(<span class="st">'Gender wage gap'</span>, <span class="st">'satisfy_in_job'</span>).mark_line()</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>chart_std <span class="op">=</span> alt.Chart(df_analysis_m_std).mark_point().encode(</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Gender wage gap'</span>,</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'satisfy_in_job'</span>,</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span>alt.TitleParams(text <span class="op">=</span> <span class="st">'標準化したデータ'</span>, </span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>                          fontSize <span class="op">=</span> <span class="dv">14</span>, </span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>                          dy <span class="op">=</span> <span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>text_std <span class="op">=</span> chart_std.mark_text(</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>    align<span class="op">=</span><span class="st">'left'</span>,</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>    baseline<span class="op">=</span><span class="st">'middle'</span>,</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>    dx<span class="op">=</span><span class="dv">7</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>).encode(</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    text<span class="op">=</span><span class="st">'Country'</span></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>line_std <span class="op">=</span> chart_std.transform_regression(<span class="st">'Gender wage gap'</span>, <span class="st">'satisfy_in_job'</span>).mark_line()</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>alt.hconcat(chart <span class="op">+</span> chart.interactive() <span class="op">+</span> text <span class="op">+</span> line,<span class="op">\</span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>   chart_std <span class="op">+</span> chart_std.interactive() <span class="op">+</span> text_std <span class="op">+</span> line_std</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>            )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="13">
+
+<style>
+  #altair-viz-2e3bcef31a404225852ad8d4921c1a84.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-2e3bcef31a404225852ad8d4921c1a84.vega-embed details,
+  #altair-viz-2e3bcef31a404225852ad8d4921c1a84.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-2e3bcef31a404225852ad8d4921c1a84"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-2e3bcef31a404225852ad8d4921c1a84") {
+      outputDiv = document.getElementById("altair-viz-2e3bcef31a404225852ad8d4921c1a84");
+    }
+
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.20.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      let deps = ["vega-embed"];
+      require(deps, displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.20.1"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"layer": [{"mark": {"type": "point"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u305d\u306e\u307e\u307e\u306e\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "point"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "name": "view_3", "title": {"text": "\u305d\u306e\u307e\u307e\u306e\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 7}, "encoding": {"text": {"field": "Country", "type": "nominal"}, "x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u305d\u306e\u307e\u307e\u306e\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "line"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u305d\u306e\u307e\u307e\u306e\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}, "transform": [{"on": "Gender wage gap", "regression": "satisfy_in_job"}]}]}, {"layer": [{"mark": {"type": "point"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u6a19\u6e96\u5316\u3057\u305f\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "point"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "name": "view_4", "title": {"text": "\u6a19\u6e96\u5316\u3057\u305f\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 7}, "encoding": {"text": {"field": "Country", "type": "nominal"}, "x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u6a19\u6e96\u5316\u3057\u305f\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "line"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u6a19\u6e96\u5316\u3057\u305f\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}, "transform": [{"on": "Gender wage gap", "regression": "satisfy_in_job"}]}]}], "data": {"name": "data-ff7ea317eb981857d5281b42d31c8641"}, "params": [{"name": "param_3", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales", "views": ["view_3"]}, {"name": "param_4", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales", "views": ["view_4"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-ff7ea317eb981857d5281b42d31c8641": [{"Country": "Australia", "satisfy_in_job": -0.6536337766235852, "Gender wage gap": 0.22171820535157097}, {"Country": "Austria", "satisfy_in_job": 1.6695428926573197, "Gender wage gap": 0.4964898212746902}, {"Country": "Belgium", "satisfy_in_job": -0.2707765906778173, "Gender wage gap": -1.5310674079441362}, {"Country": "Denmark", "satisfy_in_job": 0.6688132675564256, "Gender wage gap": -1.1060294887613684}, {"Country": "Estonia", "satisfy_in_job": -0.4731905412796114, "Gender wage gap": 1.9873665329230485}, {"Country": "Finland", "satisfy_in_job": -0.00307773550217798, "Gender wage gap": 0.760676074163201}, {"Country": "France", "satisfy_in_job": -0.7778932857649841, "Gender wage gap": -0.6074667131478452}, {"Country": "Germany", "satisfy_in_job": -0.042527761161821095, "Gender wage gap": 0.42041991371433396}, {"Country": "Hungary", "satisfy_in_job": -0.44244272716253513, "Gender wage gap": -1.4645070894448313}, {"Country": "Iceland", "satisfy_in_job": 0.3624018125630372, "Gender wage gap": -0.04982066985410565}, {"Country": "Israel", "satisfy_in_job": 1.0059141749060532, "Gender wage gap": 0.8307992475213019}, {"Country": "Japan", "satisfy_in_job": -2.8237545701667788, "Gender wage gap": 1.6405372102068987}, {"Country": "Latvia", "satisfy_in_job": 0.1141610731483171, "Gender wage gap": 0.9733963202994876}, {"Country": "Mexico", "satisfy_in_job": 1.0935565877447666, "Gender wage gap": 0.5767373037057927}, {"Country": "Norway", "satisfy_in_job": 0.3108551241928758, "Gender wage gap": -1.1795403367231578}, {"Country": "Poland", "satisfy_in_job": -1.5865918238930952, "Gender wage gap": -0.4387478304144651}, {"Country": "Slovenia", "satisfy_in_job": -0.19432961428489912, "Gender wage gap": -1.292569775646189}, {"Country": "Spain", "satisfy_in_job": 0.525679866484352, "Gender wage gap": -0.3730404670764881}, {"Country": "Sweden", "satisfy_in_job": -0.3021089300022853, "Gender wage gap": -0.7085720907443045}, {"Country": "Switzerland", "satisfy_in_job": 1.2547229059358949, "Gender wage gap": 0.38574806197807554}, {"Country": "United States", "satisfy_in_job": 0.5646796513304883, "Gender wage gap": 0.45747317861849945}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+</section>
+<section id="男女間賃金格差男性有配偶者の日本を除く国別平均仕事満足度" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="男女間賃金格差男性有配偶者の日本を除く国別平均仕事満足度"><span class="header-section-number">4.3</span> 男女間賃金格差×男性有配偶者の日本を除く国別平均仕事満足度</h2>
+<div id="43c8ee1b" class="cell" data-execution_count="14">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 男性かつ配偶者がいて、一緒に生活している人のデータから日本をのぞいてみる</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">## 日本を分析対象から除いたデータセットを作る</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>df_analysis_m_nonj <span class="op">=</span> df_analysis[(df_analysis[<span class="st">'Country'</span>] <span class="op">!=</span> <span class="st">'Japan'</span>)]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>df_analysis_m_std_nonj <span class="op">=</span> df_analysis_std[(df_analysis_std[<span class="st">'Country'</span>] <span class="op">!=</span> <span class="st">'Japan'</span>)]</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#グラフの描画</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> alt.Chart(df_analysis_m_nonj).mark_point().encode(</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Gender wage gap'</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'satisfy_in_job'</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span>alt.TitleParams(text <span class="op">=</span> <span class="st">'そのままのデータ'</span>, </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                          fontSize <span class="op">=</span> <span class="dv">14</span>, </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>                          dy <span class="op">=</span> <span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> chart.mark_text(</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    align<span class="op">=</span><span class="st">'left'</span>,</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    baseline<span class="op">=</span><span class="st">'middle'</span>,</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    dx<span class="op">=</span><span class="dv">7</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>).encode(</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    text<span class="op">=</span><span class="st">'Country'</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>line <span class="op">=</span> chart.transform_regression(<span class="st">'Gender wage gap'</span>, <span class="st">'satisfy_in_job'</span>).mark_line()</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>chart_std <span class="op">=</span> alt.Chart(df_analysis_m_std_nonj).mark_point().encode(</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Gender wage gap'</span>,</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'satisfy_in_job'</span>,</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span>alt.TitleParams(text <span class="op">=</span> <span class="st">'標準化したデータ'</span>, </span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>                          fontSize <span class="op">=</span> <span class="dv">14</span>, </span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>                          dy <span class="op">=</span> <span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>text_std <span class="op">=</span> chart_std.mark_text(</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>    align<span class="op">=</span><span class="st">'left'</span>,</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>    baseline<span class="op">=</span><span class="st">'middle'</span>,</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>    dx<span class="op">=</span><span class="dv">7</span></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>).encode(</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    text<span class="op">=</span><span class="st">'Country'</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>line_std <span class="op">=</span> chart_std.transform_regression(<span class="st">'Gender wage gap'</span>, <span class="st">'satisfy_in_job'</span>).mark_line()</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>alt.hconcat(chart <span class="op">+</span> chart.interactive() <span class="op">+</span> text <span class="op">+</span> line,<span class="op">\</span></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>   chart_std <span class="op">+</span> chart_std.interactive() <span class="op">+</span> text_std <span class="op">+</span> line_std</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>            )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="14">
+
+<style>
+  #altair-viz-c093a9f83dd94f82ad28ee9217fddef3.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-c093a9f83dd94f82ad28ee9217fddef3.vega-embed details,
+  #altair-viz-c093a9f83dd94f82ad28ee9217fddef3.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-c093a9f83dd94f82ad28ee9217fddef3"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-c093a9f83dd94f82ad28ee9217fddef3") {
+      outputDiv = document.getElementById("altair-viz-c093a9f83dd94f82ad28ee9217fddef3");
+    }
+
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.20.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      let deps = ["vega-embed"];
+      require(deps, displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.20.1"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"layer": [{"mark": {"type": "point"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u305d\u306e\u307e\u307e\u306e\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "point"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "name": "view_5", "title": {"text": "\u305d\u306e\u307e\u307e\u306e\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 7}, "encoding": {"text": {"field": "Country", "type": "nominal"}, "x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u305d\u306e\u307e\u307e\u306e\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "line"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u305d\u306e\u307e\u307e\u306e\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}, "transform": [{"on": "Gender wage gap", "regression": "satisfy_in_job"}]}], "data": {"name": "data-efec8d1ee0ae6bb9f5cd50ea399f9773"}}, {"layer": [{"mark": {"type": "point"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u6a19\u6e96\u5316\u3057\u305f\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "point"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "name": "view_6", "title": {"text": "\u6a19\u6e96\u5316\u3057\u305f\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 7}, "encoding": {"text": {"field": "Country", "type": "nominal"}, "x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u6a19\u6e96\u5316\u3057\u305f\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}}, {"mark": {"type": "line"}, "encoding": {"x": {"field": "Gender wage gap", "type": "quantitative"}, "y": {"field": "satisfy_in_job", "type": "quantitative"}}, "title": {"text": "\u6a19\u6e96\u5316\u3057\u305f\u30c7\u30fc\u30bf", "dy": -5, "fontSize": 14}, "transform": [{"on": "Gender wage gap", "regression": "satisfy_in_job"}]}], "data": {"name": "data-efec8d1ee0ae6bb9f5cd50ea399f9773"}}], "params": [{"name": "param_5", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales", "views": ["view_5"]}, {"name": "param_6", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales", "views": ["view_6"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-efec8d1ee0ae6bb9f5cd50ea399f9773": [{"Country": "Australia", "satisfy_in_job": -0.6340592380544448, "Gender wage gap": 0.2719777993924545}, {"Country": "Austria", "satisfy_in_job": 1.671266050211803, "Gender wage gap": 0.545191657551984}, {"Country": "Belgium", "satisfy_in_job": -0.2907285460686627, "Gender wage gap": -1.4708707780567853}, {"Country": "Denmark", "satisfy_in_job": 0.6112055394268404, "Gender wage gap": -1.0482425186789526}, {"Country": "Estonia", "satisfy_in_job": -0.49729739563605085, "Gender wage gap": 2.0276161687635432}, {"Country": "Finland", "satisfy_in_job": 0.15562952616263281, "Gender wage gap": 0.8078801640845323}, {"Country": "France", "satisfy_in_job": -0.6377155488408328, "Gender wage gap": -0.5525062360120885}, {"Country": "Germany", "satisfy_in_job": 0.10669449032716007, "Gender wage gap": 0.4695530117457925}, {"Country": "Hungary", "satisfy_in_job": -0.46959876526283034, "Gender wage gap": -1.4046878087699928}, {"Country": "Iceland", "satisfy_in_job": 0.36484225946642995, "Gender wage gap": 0.001978354631756627}, {"Country": "Israel", "satisfy_in_job": 0.7700939486929137, "Gender wage gap": 0.8776057894013657}, {"Country": "Latvia", "satisfy_in_job": 0.10898136608915507, "Gender wage gap": 1.0193944391681748}, {"Country": "Mexico", "satisfy_in_job": 1.0785677877590243, "Gender wage gap": 0.6249841943790959}, {"Country": "New Zealand", "satisfy_in_job": 0.09598088731036493, "Gender wage gap": -1.0818481182879032}, {"Country": "Norway", "satisfy_in_job": 0.3458302232848978, "Gender wage gap": -1.1213366129169782}, {"Country": "Poland", "satisfy_in_job": -1.5784484252650752, "Gender wage gap": -0.3847438681958665}, {"Country": "Slovenia", "satisfy_in_job": -0.18630041564178304, "Gender wage gap": -1.2337252560816667}, {"Country": "Spain", "satisfy_in_job": 0.528966020867264, "Gender wage gap": -0.3194090184270981}, {"Country": "Sweden", "satisfy_in_job": -0.3122038519830707, "Gender wage gap": -0.6530384187159006}, {"Country": "Switzerland", "satisfy_in_job": 1.378962825269971, "Gender wage gap": 0.43507772451288984}, {"Country": "United States", "satisfy_in_job": 0.4544471177991076, "Gender wage gap": 0.5063962112439047}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+</section>
 </section>
 <section id="考察" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> 考察</h1>
@@ -260,7 +793,10 @@ div.csl-indent {
 <ul>
 <li>性別役割分業は男性にとって精神的な意味で必ずしもデメリットではないのかもしれない
 <ul>
+<li>考えられる精神的なメリット
+<ul>
 <li>仕事にフルコミットできる</li>
+</ul></li>
 </ul></li>
 </ul></li>
 <li>外れ値としての日本
