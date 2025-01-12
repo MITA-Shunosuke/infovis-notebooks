@@ -1,0 +1,122 @@
+---
+title: '男性の仕事満足度と男女間賃金格差との関連'
+subtitile: '『情報可視化の理論と実践』にて2025年01月10日（金）発表'
+author: 
+  - name: 三田周之介
+    affiliation: 東京大学大学院教育学研究科比較教育社会学コース修士課程
+    email: evangelisten364@g.ecc.u-tokyo.ac.jp
+    url: https://github.com/MITA-Shunosuke/infovis-notebooks.git
+date: today　
+date-format: "YYYY/MM/DD"
+format: 
+  html:
+    grid: 
+      body-width: 1024px
+    theme: lumen
+    highlight-style: a11y
+    toc: true
+    toc-location: right
+    toc-depth: 3
+    number-sections: true
+#  pdf: 
+#    pdf-engine: lualatex
+#    documentclass: ltjsarticle
+#    classoption:
+#      - a4paper
+#      - 10.5pt
+#    toc: true
+#    toc-depth: 3
+#    number-sections: true
+bibliography: references.bib
+bibliographystyle: american-sociological-association
+---
+
+# 問い
+
+- <u>**男女間の賃金格差と男性の仕事満足度は関連しているか？**</u>
+  - 関連していると考えられる理由
+    - 自分のやりたい仕事よりも稼いでくることが優先される？
+    - OR 次の仕事が見つからないリスクから転職ができない？
+    - OR 家計における稼ぎ手としてのプレッシャー？
+  - 補足
+    - 今回はあくまで関連の検証であり、因果関係の検証ではない
+
+# データの概要、取得と前処理の方法
+
+```{python}
+#| include: false
+# パッケージの読み込み
+import pandas as pd
+import io
+import requests
+import altair as alt
+from scipy.stats import pearsonr
+```
+
+## データの概要
+- @ISSP2015
+  - 調査対象国
+  - 性別
+  - 仕事満足度（あなたは、今の仕事にどのくらい満足していますか。）
+  - 同居するパートナーの有無（あなたには現在、配偶者（またはパートナー）がいますか。また、いる方は、その相手と一緒に生活していますか。）
+- @OECD2024
+  - OECD加盟国における男女の賃金格差
+  - 集計年
+  - 集計した国
+  - 賃金分布において、賃金の中央値を計算する範囲
+  - 賃金の中央値の男女差が男性の賃金の中央値に占める割合（%）
+
+## データの取得方法
+- @ISSP2015
+  - 以下のURLから手動で端末にCSVファイルをダウンロードした
+    - <https://doi.org/10.4232/1.12848>
+  ```{python}
+  #| code-fold: true
+  #| echo: false
+  df_wo = pd.read_csv('/Users/MitaShunosuke/Library/CloudStorage/OneDrive-TheUniversityofTokyo/ダウンロード/修士課程/M1A/情報可視化の理論と実践/infovis-notebooks/final_report/ISSP 2015 - Work Orientations IV/issp2015_wo.csv')
+  ```
+- @OECD2024
+  - CSVファイルをダウンロードする以下のリンクから io ライブラリおよび requests ライブラリを用いてダウンロードした。
+    - <https://sdmx.oecd.org/public/rest/data/OECD.ELS.SAE,DSD_EARNINGS@GENDER_WAGE_GAP,1.0/all?dimensionAtObservation=AllDimensions&format=csvfilewithlabels> 
+  ```{python}
+  #| code-fold: true
+  # 性別による賃金の中央値の差のデータをダウンロードする
+  url = 'https://sdmx.oecd.org/public/rest/data/OECD.ELS.SAE,DSD_EARNINGS@GENDER_WAGE_GAP,1.0/all?dimensionAtObservation=AllDimensions&format=csvfilewithlabels'
+  response = requests.get(url)
+  df_gengap = pd.read_csv(io.BytesIO(response.content))
+  ```
+
+## データの前処理の方法
+- @ISSP2015
+  - OECD加盟国＋台湾の行のみ抽出する。
+  - 仕事満足度の変数を、仕事満足度が高くなるほど値が大きくなるように逆転
+  - 国ごとの男性の国別平均仕事満足度が対応したデータセットを作成
+- @OECD2024
+  - 集計年が2014年の行を抽出
+    - 2015年から直近2年で最も集計された国が多かったため
+- 上記の二つのデータセットを国名を元に横に結合した分析用データセットを作成
+  - 21ヶ国のデータが得られた
+
+# データ変数と視覚変数の対応関係
+
+データセット
+散布図
+データ
+ある国の賃金の中央値の男女差・男性における国別平均仕事満足度：直交座標のある点に位置する色を持った円
+データ変数
+賃金の中央値の男女差：x軸
+男性における国別平均仕事満足度：y軸
+
+# 可視化作品
+
+こんな感じ
+
+# 考察
+- 結果：**男女間の賃金格差が大きくなるほど、男性の仕事満足度が低くなるというわけではなかった**
+  - 性別役割分業は男性にとって精神的な意味で必ずしもデメリットではないのかもしれない
+    - 仕事にフルコミットできる
+- 外れ値としての日本
+  - 性別役割分業がデメリットになるような制度的特徴があるのかもしれない
+  - 満足度を低く答えるような文化的特徴があるのかもしれない
+
+# 参考文献
